@@ -10,6 +10,19 @@
 <button id="clear">Clear</button>
 <pre id="results"></pre>
 
+
+<label for="search">Search by contact name: </label>
+<input id="search" type="text" />
+<button>Search</button>
+
+<label for="number">Enter number: </label>
+<input id="number" type="number" />
+<button>Generate integer squares</button>
+
+<p>Output:</p>
+
+<p></p>
+
 </body>
 
 <script>
@@ -76,6 +89,103 @@ for (const cat of cats) {
 
 console.log(myFavoriteCats); // "My cats are called Pete, Biggles, Jasmine, "
 
+const cats5 = ["Pete", "Biggles", "Jasmine"];
+
+let myFavoriteCats1 = "My cats are called ";
+
+for (let i = 0; i < cats.length; i++) {
+  if (i === cats.length - 1) {
+    // We are at the end of the array
+    myFavoriteCats += `and ${cats[i]}.`;
+  } else {
+    myFavoriteCats += `${cats[i]}, `;
+  }
+}
+
+console.log(myFavoriteCats); // "My cats are called Pete, Biggles, and Jasmine."
+
+
+const contacts = [
+  "Chris:2232322",
+  "Sarah:3453456",
+  "Bill:7654322",
+  "Mary:9998769",
+  "Dianne:9384975",
+];
+const para = document.querySelector("p");
+const input = document.querySelector("input");
+const btn = document.querySelector("button");
+
+btn.addEventListener("click", () => {
+  const searchName = input.value.toLowerCase();
+  input.value = "";
+  input.focus();
+  para.textContent = "";
+  for (const contact of contacts) {
+    const splitContact = contact.split(":");
+    if (splitContact[0].toLowerCase() === searchName) {
+      para.textContent = `${splitContact[0]}'s number is ${splitContact[1]}.`;
+      break;
+    }
+  }
+  if (para.textContent === "") {
+    para.textContent = "Contact not found.";
+  }
+});
+
+const para1 = document.querySelector("p");
+const input1 = document.querySelector("input");
+const btn1 = document.querySelector("button");
+
+btn.addEventListener("click", () => {
+  para.textContent = "Output: ";
+  const num = input.value;
+  input.value = "";
+  input.focus();
+  for (let i = 1; i <= num; i++) {
+    let sqRoot = Math.sqrt(i);
+    if (Math.floor(sqRoot) !== sqRoot) {
+      continue;
+    }
+    para.textContent += `${i} `;
+  }
+});
+
+const cats6 = ["Pete", "Biggles", "Jasmine"];
+
+let myFavoriteCats2 = "My cats are called ";
+
+let i = 0;
+
+while (i < cats6.length) {
+  if (i === cats6.length - 1) {
+    myFavoriteCats2 += `and ${cats6[i]}.`;
+  } else {
+    myFavoriteCats2 += `${cats6[i]}, `;
+  }
+
+  i++;
+}
+
+console.log(myFavoriteCats); // "My cats are called Pete, Biggles, and Jasmine."
+
+const cats7 = ["Pete", "Biggles", "Jasmine"];
+
+let myFavoriteCats3 = "My cats are called ";
+
+let k = 0;
+
+do {
+  if (k === cats.length - 1) {
+    myFavoriteCats3 += `and ${cats7[i]}.`;
+  } else {
+    myFavoriteCats3 += `${cats7[i]}, `;
+  }
+
+  i++;
+} while (i < cats.length);
+
+console.log(myFavoriteCats); // "My cats are called Pete, Biggles, and Jasmine."
 
 
 </script>
