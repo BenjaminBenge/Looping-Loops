@@ -66,6 +66,17 @@ const clearBtn = document.querySelector("#clear");
 calculateBtn.addEventListener("click", calculate);
 clearBtn.addEventListener("click", () => (results.textContent = ""));
 
+const cats4 = ["Pete", "Biggles", "Jasmine"];
+
+let myFavoriteCats = "My cats are called ";
+
+for (const cat of cats) {
+  myFavoriteCats += `${cat}, `;
+}
+
+console.log(myFavoriteCats); // "My cats are called Pete, Biggles, Jasmine, "
+
+
 
 </script>
 </html>
